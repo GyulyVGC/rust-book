@@ -3,8 +3,11 @@ use std::{
     net::{TcpListener, TcpStream},
 };
 
+const SOCKET: &str = "192.168.1.251:999";
+
 fn main() {
-    let listener = TcpListener::bind("192.168.1.251:999").unwrap();
+    let listener = TcpListener::bind(SOCKET).unwrap();
+    println!("Server is up and listening at {}", SOCKET);
 
     for stream in listener.incoming() {
         let stream = stream.unwrap();
@@ -21,5 +24,5 @@ fn handle_connection(mut stream: TcpStream) {
         .take_while(|line| !line.is_empty())
         .collect();
 
-    println!("Request: {:#?}", http_request);
+    println!("New request: {:#?}\n", http_request);
 }
