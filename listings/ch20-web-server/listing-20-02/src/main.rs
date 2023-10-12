@@ -7,7 +7,7 @@ const SOCKET: &str = "192.168.1.251:999";
 
 fn main() {
     let listener = TcpListener::bind(SOCKET).unwrap();
-    println!("Server is up and listening at {}", SOCKET);
+    println!("\nServer is up and listening at {}\n", SOCKET);
 
     for stream in listener.incoming() {
         let stream = stream.unwrap();
