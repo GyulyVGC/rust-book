@@ -24,5 +24,6 @@ fn handle_connection(mut stream: TcpStream) {
         .take_while(|line| !line.is_empty())
         .collect();
 
-    println!("New request: {:#?}\n", http_request);
+    println!("New request: {:#?}", http_request);
+    println!("{}","-".repeat(42));
 }
